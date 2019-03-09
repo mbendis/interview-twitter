@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-8 form-group">
+          <input type="text" class="form-control" placeholder="What's happening?" #tweetContent="ngModel" ngModel
+                (focus)="onTweetContentFocus()"  name="tweetContent" required minlength="1" maxlength="1400"/>
+        </div>
+        <div class="col-md-4 form-group">
+          <button [disabled]="isSubmitButtonDisabled(f)" class="btn btn-primary">Tweet</button>
+        </div>
+      </div>
+    </form>
+    <div class="col-md-4 col-md-offset-3">
+      <div *ngIf="tweetSavedStatus.success" class=" alert alert-success" role="alert">Tweet saved!</div>
+    </div>
+    <div class="col-md-4 col-md-offset-3">
+      <div *ngIf="tweetSavedStatus.fail" class=" alert alert-danger" role="alert">Failed to create tweet!</div>
+    </div>
+  </div>
+</div>
+
