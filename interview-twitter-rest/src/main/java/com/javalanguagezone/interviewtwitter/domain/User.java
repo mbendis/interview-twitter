@@ -39,10 +39,15 @@ public class User implements UserDetails {
 
   @JsonIgnore
   private String password;
+  
+  private String firstName;
+  private String lastName;
 
-  public User(String username, String password) {
+  public User(String username, String password, String firstName, String lastName) {
     this.username = username;
     this.password = password;
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
   public void addFollowing(User... users){
@@ -74,12 +79,9 @@ public class User implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
-
-  public Integer getFollowersSize(){
-    return this.followers.size();
+  
+  public String getFullName() {
+	  return this.firstName + " " + this.lastName;
   }
-
-  public Integer getFollowingSize(){
-    return this.following.size();
-  }
+  
 }
