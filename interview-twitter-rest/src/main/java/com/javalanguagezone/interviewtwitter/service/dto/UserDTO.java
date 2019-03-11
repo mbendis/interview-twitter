@@ -11,9 +11,13 @@ import static lombok.AccessLevel.PRIVATE;
 public class UserDTO {
   private Long id;
   private String username;
+  private Integer followersSize;
+  private Integer followingSize;
 
   public UserDTO(User user) {
     this.id = user.getId();
     this.username = user.getUsername();
+    this.followersSize = user.getFollowersSize();
+    this.followingSize = user.getFollowingSize();
   }
 }

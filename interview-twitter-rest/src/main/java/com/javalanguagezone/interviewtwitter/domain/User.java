@@ -74,4 +74,12 @@ public class User implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
+
+  public Integer getFollowersSize(){
+    return this.followers.size();
+  }
+
+  public Integer getFollowingSize(){
+    return this.following.size();
+  }
 }
