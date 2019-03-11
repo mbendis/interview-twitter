@@ -1,5 +1,6 @@
 export interface TweetModel {
   id: number,
   content: string,
-  author: string
+  author: string,
+  authorFullName: string
 }
