@@ -1,3 +1,20 @@
 <div class="numbers">
-  <h1>HelloThere {{ followers }} {{ following }} {{ tweetsCount }}</h1>
+  <table class="table" id="tweets-table">
+    <thead>
+    <tr>
+      <th>Followers</th>
+      <th>Following</th>
+      <th>Number of tweets</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ followers }}</td>
+      <td>{{ following }} </td>
+      <td>{{ tweetsCount }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
 </div>
