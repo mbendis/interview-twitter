@@ -43,4 +43,7 @@ export class AuthService {
     this.clearAuthToken();
     this.clearCredentials();
   }
+  register(username: string, password: string){
+
+  }
 }
