@@ -17,7 +17,6 @@ export class UserNumbersComponent implements OnInit {
     constructor(private userService: UserService, private tweetService: TweetService, private authService: AuthService){
     }
     ngOnInit(): void {
-        console.log('On init');
         this.userService.fetchFollowers().subscribe(
           followers => this.followers = followers.length);
         this.userService.fetchFollowing().subscribe(
