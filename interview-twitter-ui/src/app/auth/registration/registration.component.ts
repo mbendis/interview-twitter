@@ -10,7 +10,8 @@ import {AuthService} from "../../services/auth.service";
 })
 
 export class RegistrationComponent {
-  model: any = {username: '', password: ''};
+
+  model: any = {username: '', password: '', firstName: '', lastName: ''};
   loading = false;
   incorrectCredentialsError = false;
 
@@ -26,7 +27,7 @@ export class RegistrationComponent {
 
   register() {
     this.loading = true;
-    this.authService.register(this.model.username, this.model.password);
+    this.authService.register(this.model.username, this.model.password, this.model.firstName, this.model.lastName);
     this.router.navigate(['/login']);
   }
 

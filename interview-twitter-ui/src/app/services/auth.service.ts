@@ -43,7 +43,7 @@ export class AuthService {
     this.clearAuthToken();
     this.clearCredentials();
   }
-  register(username: string, password: string){
-
+  register(username: string, password: string, firstName: string, lastName: string){
+    console.log('registration: ' + username + ' ' + password + ' ' + firstName + ' ' + lastName);
   }
 }
