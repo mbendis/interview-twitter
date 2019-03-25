@@ -45,6 +45,14 @@ public class UserService implements UserDetailsService {
     return convertUsersToDTOs(user.getFollowers());
   }
 
+
+  @Transactional
+  public UserDTO register(String username, String password, String firstName, String lastName){
+    User newUser = new User(username, password, firstName, lastName);
+    userRepository.save(newUser);
+    return new UserDTO(newUser);
+  }
+
   private User getUser(String username) {
     return userRepository.findOneByUsername(username);
   }
