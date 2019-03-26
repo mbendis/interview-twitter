@@ -36,9 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http.authorizeRequests()
       .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
       .anyRequest().authenticated()
+      .antMatchers("/registration").permitAll().anyRequest().permitAll()
       .and().httpBasic()
       .and().sessionManagement().sessionCreationPolicy(STATELESS)
       .and().csrf().disable();
+
   }
 
   @Bean

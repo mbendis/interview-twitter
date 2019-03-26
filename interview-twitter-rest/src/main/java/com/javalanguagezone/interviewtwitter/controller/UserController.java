@@ -1,5 +1,6 @@
 package com.javalanguagezone.interviewtwitter.controller;
 
+import com.javalanguagezone.interviewtwitter.domain.User;
 import com.javalanguagezone.interviewtwitter.service.UserService;
 import com.javalanguagezone.interviewtwitter.service.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
@@ -29,14 +30,11 @@ public class UserController {
     return userService.getUsersFollowing(principal);
   }
 
-  @RequestMapping("/registration")
-  @PostMapping
-  @ResponseStatus(CREATED)
-  public UserDTO registration(@RequestParam("username") String username,
-                              @RequestParam("password") String password,
-                              @RequestParam("firstName") String firstName,
-                              @RequestParam("lastname") String lastName,
-                              Principal principal) {
-    return userService.register(username, password, firstName, lastName); }
+  @RequestMapping(value = "/registration", method = RequestMethod.POST)
+  public UserDTO registration(@RequestBody User user)
+                              {
+
+                                System.out.println(user.getFullName());
+                                return userService.register(user); }
 
 }

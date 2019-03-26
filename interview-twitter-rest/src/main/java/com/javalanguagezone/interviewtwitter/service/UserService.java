@@ -46,11 +46,10 @@ public class UserService implements UserDetailsService {
   }
 
 
-  @Transactional
-  public UserDTO register(String username, String password, String firstName, String lastName){
-    User newUser = new User(username, password, firstName, lastName);
-    userRepository.save(newUser);
-    return new UserDTO(newUser);
+  
+  public UserDTO register(User user){
+    this.userRepository.save(user);
+    return new UserDTO(user);
   }
 
   private User getUser(String username) {

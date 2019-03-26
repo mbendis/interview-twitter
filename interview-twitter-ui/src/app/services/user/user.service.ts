@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<FollowerModel[]>(ENDPOINT_BASE + 'following');
   }
 
-  register(username: string, password: string, firstName: string, lastName: string) {
+  register(username: string, password: string, firstName: string, lastName: string): Observable<UserModel> {
     const registrationData = { username: username, password: password, firstName: firstName, lastName: lastName};
     console.log('registration: ' + username + ' ' + password + ' ' + firstName + ' ' + lastName);
     return this.http.post<UserModel>(ENDPOINT_BASE + 'registration', registrationData);

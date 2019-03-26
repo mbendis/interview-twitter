@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import {AuthService} from "../../services/auth.service";
 import {UserService} from '../../services/user/user.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class RegistrationComponent {
   incorrectCredentialsError = false;
 
   constructor(private router: Router,
-              private userService: UserService,
-              private authService: AuthService) {
+              private userService: UserService) {
   }
 
   onSubmit(registrationForm: NgForm): void {
@@ -29,7 +27,7 @@ export class RegistrationComponent {
 
   register() {
     this.loading = true;
-    this.userService.register(this.model.username, this.model.password, this.model.firstName, this.model.lastName);
+    this.userService.register(this.model.username, this.model.password, this.model.firstName, this.model.lastName).subscribe();
     this.router.navigate(['/login']);
   }
 
