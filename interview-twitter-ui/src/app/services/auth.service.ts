@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -43,7 +44,5 @@ export class AuthService {
     this.clearAuthToken();
     this.clearCredentials();
   }
-  register(username: string, password: string, firstName: string, lastName: string){
-    console.log('registration: ' + username + ' ' + password + ' ' + firstName + ' ' + lastName);
-  }
+
 }
