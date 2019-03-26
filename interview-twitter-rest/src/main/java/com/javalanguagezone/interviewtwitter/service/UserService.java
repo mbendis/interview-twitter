@@ -3,6 +3,7 @@ package com.javalanguagezone.interviewtwitter.service;
 import com.javalanguagezone.interviewtwitter.domain.User;
 import com.javalanguagezone.interviewtwitter.repository.UserRepository;
 import com.javalanguagezone.interviewtwitter.service.dto.UserDTO;
+import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,9 +47,14 @@ public class UserService implements UserDetailsService {
   }
 
 
-  
   public UserDTO register(User user){
+    System.out.println("Saving user: " + user.getUsername());
     this.userRepository.save(user);
+    for(User u : userRepository.findAll() ){
+      System.out.println(u.getFullName() + " " + user.getPassword());
+    }
+
+
     return new UserDTO(user);
   }
 

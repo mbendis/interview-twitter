@@ -31,10 +31,7 @@ public class UserController {
   }
 
   @RequestMapping(value = "/registration", method = RequestMethod.POST)
-  public UserDTO registration(@RequestBody User user)
-                              {
-
-                                System.out.println(user.getFullName());
-                                return userService.register(user); }
-
+  public UserDTO registration(@RequestBody User user) {
+    System.out.println(user.getFullName());
+    return userService.register(user); }
 }
